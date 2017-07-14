@@ -1,0 +1,50 @@
+{{template "header"}}
+<h1>ASN Toplist</h1>
+<div class="row">
+<!-- Total -->
+<div class="medium-5 columns">
+  <table id="toplist" class="display compact" role="grid">
+    <thead>
+      <tr>
+        <th width="150" id="label">Total</th>
+        <th width="150" id="count">TLD Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{- range .Data.total -}}
+      <tr><th><a href="/asn/{{ .ASN }}">{{ .ASN }}</a></th><th>{{ .Count }}</th></tr>
+      {{- end -}}
+    </tbody>
+  </table>
+</div>
+<!-- IPv4 -->
+<div class="medium-3 columns">
+<table id="toplist" class="display compact" role="grid">
+  <thead>
+    <tr>
+      <th width="125" id="label">IPv4</th>
+      <th width="125" id="count">TLD Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{- range .Data.v4 -}}
+    <tr><th><a href="/asn/{{ .ASN }}">{{ .ASN }}</a></th><th>{{ .Count }}</th></tr>
+    {{- end -}}
+  </tbody>
+</table>
+</div>
+<!-- IPv6 -->
+<div class="medium-4 columns">
+<table id="toplist" class="display compact" role="grid">
+  <thead>
+    <tr><th width="150" id="label">IPv6</th><th width="150" id="count">TLD Count</th></tr>
+  </thead>
+  <tbody>
+    {{- range .Data.v6 -}}
+    <tr><th><a href="/asn/{{ .ASN}}">{{ .ASN }}</a></th><th>{{ .Count }}</th></tr>
+    {{- end -}}
+  </tbody>
+</table>
+</div>
+</div>
+{{template "footer"}}

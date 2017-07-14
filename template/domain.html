@@ -1,0 +1,27 @@
+{{template "header"}}
+<h1>Domain: {{ .Name }}</h1>
+<div>
+  <table id="tldlog" class="display compact" role="grid">
+    <thead>
+      <tr>
+	<th id="logidentifier" width="150">Log identifier</th>
+	<th id="loglevel" width="80">Log level</th>
+	<th id="logdetails" width="150">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{- range .Result -}}
+    {{- if eq .Module "SYSTEM" -}}
+    {{- else -}}
+    <tr class="{{ .Level }}">
+      <td>{{.Module}}:<a href="/tag/{{.Tag}}">{{.Tag}}</a></td>
+      <td>{{.Level}}</td>
+      <td>{{.ArgsString}}</td>
+    </tr>
+    {{- end -}}
+    {{end}}
+    </tbody>
+  </table>
+</div>
+<div>This log is also available as <a href="/domain/{{ .Name }}?json=1">JSON</a>.</div>
+{{template "footer"}}

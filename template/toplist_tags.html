@@ -1,0 +1,77 @@
+{{template "header"}}
+<h1>Tag Toplist</h1>
+
+<div class="row">
+<!-- ERROR -->
+  <div class="medium-6 columns">
+  <h3>ERROR</h3>
+  <table id="toplist" class="display compact" role="grid">
+    <thead>
+      <tr><th width="150" id="label">Tag</th><th width="150" id="count">TLD Count</th></tr>
+    </thead>
+    <tbody>
+      {{- range .Data.ERROR -}}
+      <tr><th><a href="/tag/{{ .Tag }}">{{ .Tag }}</a></th><th>{{ .Count }}</th></tr>
+      {{- end -}}
+    </tbody>
+  </table>
+  </div>
+
+<!-- WARNING -->
+  <div class="medium-6 columns">
+  <h3>WARNING</h3>
+  <table id="toplist" class="display compact" role="grid">
+    <thead>
+      <tr>
+        <th width="150" id="label">Tag</th>
+        <th width="150" id="count">TLD Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{- range .Data.WARNING -}}
+      <tr><th><a href="/tag/{{ .Tag }}">{{ .Tag }}</a></th><th>{{ .Count }}</th></tr>
+      {{- end -}}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- NOTICE -->
+<div class="row">
+  <div class="medium-6 columns">
+  <h3>NOTICE</h3>
+  <table id="toplist" class="display compact" role="grid">
+    <thead>
+      <tr>
+        <th width="150" id="label">Tag</th>
+        <th width="150" id="count">TLD Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{- range .Data.NOTICE -}}
+      <tr><th><a href="/tag/{{ .Tag }}">{{ .Tag }}</a></th><th>{{ .Count }}</th></tr>
+      {{- end -}}
+    </tbody>
+  </table>
+  </div>
+
+<!-- INFO -->
+  <div class="medium-6 columns">
+  <h3>INFO</h3>
+  <table id="toplist" class="display compact" role="grid">
+    <thead>
+      <tr>
+        <th width="150" id="label">Tag</th>
+        <th width="150" id="count">TLD Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{- range .Data.INFO -}}
+      <tr><th><a href="/tag/{{ .Tag }}">{{ .Tag }}</a></th><th>{{ .Count }}</th></tr>
+      {{- end -}}
+    </tbody>
+  </table>
+  </div>
+
+</div>
+{{template "footer"}}

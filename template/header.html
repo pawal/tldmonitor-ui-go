@@ -1,0 +1,77 @@
+{{define "header"}}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=<% settings.charset %>" />
+  <title>TLDMonitor</title>
+  <link rel="stylesheet" href="/static/css/foundation.css" />
+  <link rel="stylesheet" href="/static/css/datatables.min.css" />
+  <link rel="stylesheet" href="/static/css/tldmon.css" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/static/img/icon/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/static/img/icon/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/static/img/icon/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/img/icon/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/static/img/icon/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/static/img/icon/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/static/img/icon/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/static/img/icon/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/img/icon/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192"  href="/static/img/icon/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/static/img/icon/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/img/icon/favicon-16x16.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="/static/img/icon/ms-icon-144x144.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <script src="/static/js/vendor/modernizr.js"></script>
+</head>
+<body>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet" />
+
+<!-- navigation -->
+
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+
+    <div class="logo">
+      <a href="/"><img src="/static/img/tldmonlogo.png" /></a>
+    </div>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class=""><a href="/">All TLDs</a></li>
+      <li class="divider"></li>
+      <li class=""><a href="/toplist/asn">Toplist ASN</a></li>
+      <li class="divider"></li>
+      <li class=""><a href="/toplist/ns">Toplist Nameservers</a></li>
+      <li class="divider"></li>
+      <li class=""><a href="/toplist/tags">Toplist Tags</a></li>
+      <li class="divider"></li>
+      <li class="has-dropdown">
+	<a href="#">About</a>
+	<ul class="dropdown">
+	  <li><a href="/about/zonemaster">Zonemaster</a></li>
+	  <li><a href="/about/tldmonitor">TLDMonitor</a></li>
+	</ul>
+      </li>
+    </ul>
+    <ul class="social-icons">
+      <li><a href="https://github.com/pawal/zonemaster-collector"><i class="fi-social-github"></i></a></li>
+      <li><a href="https://twitter.com/pawal"><i class="fi-social-twitter"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/pawal"><i class="fi-social-linkedin"></i></a></li>
+      <li><a href="mailto:pawal@blipp.com"><i class="fi-at-sign"></i></a></li>
+    </ul>
+
+  </section>
+</nav>
+
+<!-- content -->
+<div class="row">
+  <div class="large-11 columns">
+{{end}}

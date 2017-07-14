@@ -1,0 +1,20 @@
+{{template "header"}}
+<h1>{{.Title}}</h1>
+<div class="row">
+  <div class="medium-12 columns">
+    <table id="tldlist" class="display compact" role="grid">
+      <thead>
+        <tr>
+  	       <th width="450" id="tldname">Name of TLD</th>
+           <th width="450" id="loglevel">Log level</th>
+         </tr>
+       </thead>
+       <tbody>
+         {{range .List}}<tr class="{{.Level}}"><td><a href="/domain/{{.Name}}">{{.Name}}</a></td><td>{{.Level}}</td></tr>
+         {{end}}
+       </tbody>
+
+     </table>
+   </div>
+ </div>
+{{template "footer"}}
