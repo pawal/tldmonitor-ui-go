@@ -8,7 +8,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/julienschmidt/httprouter"
-	"github.com/pawal/tld-go/handlers"
+	"github.com/pawal/tldmonitor-ui-go/handlers"
 	"github.com/spf13/viper"
 )
 

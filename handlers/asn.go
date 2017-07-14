@@ -6,7 +6,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/pawal/tld-go/model"
+	"github.com/pawal/tldmonitor-ui-go/model"
 )
 
 // ASN finds all domains with the asn matching the search

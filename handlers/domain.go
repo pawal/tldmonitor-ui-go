@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/pawal/tld-go/model"
+	"github.com/pawal/tldmonitor-ui-go/model"
 	"gopkg.in/mgo.v2/bson"
 )
 

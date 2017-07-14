@@ -6,7 +6,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/pawal/tld-go/model"
+	"github.com/pawal/tldmonitor-ui-go/model"
 )
 
 // Tag finds all domain with the tag and renders the index web page (domain list)
