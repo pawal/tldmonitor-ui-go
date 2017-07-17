@@ -37,11 +37,12 @@ func main() {
 
 	router := httprouter.New()
 	router.GET("/", wh.Index)
-	router.GET("/domain/:id", wh.Domain)
+	router.GET("/ns/:id", wh.NS)
 	router.GET("/tag/:id", wh.Tag)
 	router.GET("/asn/:id", wh.ASN)
 	router.GET("/address/:id", wh.Address)
-	router.GET("/ns/:id", wh.NS)
+	router.GET("/prefix/:id/:len", wh.Prefix) // TODO: bug, cannot handle %2F in URL strings as :id
+	router.GET("/domain/:id", wh.Domain)
 	router.GET("/toplist/ns", wh.TopListNS)
 	router.GET("/toplist/asn", wh.TopListASN)
 	router.GET("/toplist/tags", wh.TopListTags)

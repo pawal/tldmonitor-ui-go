@@ -59,6 +59,8 @@ func formatArgs(args map[string]string) (res string) {
 			res += formatNs(value)
 		case "address":
 			res += formatAddress(value)
+		case "prefix":
+			res += formatPrefix(value)
 		case "asn":
 			res += formatASN(key, value)
 		default:
@@ -80,7 +82,7 @@ func removeTrailingDot(ns string) (res string) {
 func formatNsnlist(value string) (res string) {
 	var s string
 	for _, ns := range strings.Split(value, ",") {
-		ns = removeTrailingDot(ns)
+		ns = template.URLQueryEscaper(removeTrailingDot(ns))
 		s += fmt.Sprintf("<a href=\"/ns/%s\">%s</a><br/>", ns, ns)
 	}
 	return fmt.Sprintf("nsnlist: %s<br/>", s)
@@ -90,7 +92,7 @@ func formatNsnlist(value string) (res string) {
 func formatNsset(value string) (res string) {
 	var s string
 	for _, ns := range strings.Split(value, ",") {
-		ns = removeTrailingDot(ns)
+		ns = template.URLQueryEscaper(removeTrailingDot(ns))
 		s += fmt.Sprintf("<a href=\"/ns/%s\">%s</a><br/>", ns, ns)
 	}
 	return fmt.Sprintf("nsset: %s<br/>", s)
@@ -100,6 +102,7 @@ func formatNsset(value string) (res string) {
 func formatGlue(value string) (res string) {
 	var s string
 	for _, str := range strings.Split(value, ";") {
+		str = template.URLQueryEscaper(str)
 		s += fmt.Sprintf("<a href=\"/ns/%s\">%s</a><br/>", str, str)
 	}
 	return fmt.Sprintf("glue: %s<br/>", s)
@@ -110,6 +113,7 @@ func formatGlue(value string) (res string) {
 func formatNs(value string) (res string) {
 	i := strings.Index(value, "/")
 	// If the ns args contains both ns and address separated by "/"
+	// TODO: URL escape strings
 	if i != -1 {
 		ns := fmt.Sprintf("<a href=\"/ns/%s\">%s</a>",
 			value[0:i], value[0:i])
@@ -122,19 +126,28 @@ func formatNs(value string) (res string) {
 	if strings.Contains(value, ";") {
 		var s string
 		for _, str := range strings.Split(value, ";") {
+			str = template.URLQueryEscaper(str)
 			s += fmt.Sprintf("<a href=\"/ns/%s\">%s</a><br/>", str, str)
 		}
 		return fmt.Sprintf("ns: %s<br/>", s)
 	}
 
 	// only the ns name
+	value = template.URLQueryEscaper(value)
 	res = fmt.Sprintf("ns: <a href=\"/ns/%s\">%s</a><br/>", value, value)
 	return res
 }
 
 // address is either an ipv4 or ipv6 address
 func formatAddress(value string) (res string) {
+	value = template.URLQueryEscaper(value)
 	return fmt.Sprintf("address: <a href=\"/address/%s\">%s</a><br/>", value, value)
+}
+
+// address is either an ipv4 or ipv6 address
+func formatPrefix(value string) (res string) {
+	v := template.URLQueryEscaper(value)
+	return fmt.Sprintf("prefix: <a href=\"/prefix/%s\">%s</a><br/>", v, value)
 }
 
 // asn is either a single value, or comma separated list of values
@@ -142,10 +155,12 @@ func formatASN(key, value string) (res string) {
 	// if comma separated list
 	if strings.Contains(value, ",") {
 		for _, str := range strings.Split(value, ",") {
+			str = template.URLQueryEscaper(str)
 			res += fmt.Sprintf("<a href=\"/asn/%s\">%s</a> ", str, str)
 		}
 		return "asn: " + res + "<br/>"
 	}
 	// single value
+	value = template.URLQueryEscaper(value)
 	return fmt.Sprintf("asn: <a href=\"/asn/%s\">%s</a><br/>", value, value)
 }
