@@ -140,8 +140,8 @@ func formatNs(value string) (res string) {
 
 // address is either an ipv4 or ipv6 address
 func formatAddress(value string) (res string) {
-	value = template.URLQueryEscaper(value)
-	return fmt.Sprintf("address: <a href=\"/address/%s\">%s</a><br/>", value, value)
+	v := template.URLQueryEscaper(value)
+	return fmt.Sprintf("address: <a href=\"/address/%s\">%s</a><br/>", v, value)
 }
 
 // address is either an ipv4 or ipv6 address
