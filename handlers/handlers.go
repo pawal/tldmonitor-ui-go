@@ -10,7 +10,7 @@ import (
 	mgo "gopkg.in/mgo.v2"
 )
 
-// WebHandler containts handler info (mongo db) for the handlers
+// WebHandler contains handler info (mongo db) for the handlers
 type WebHandler struct {
 	mgc     *mgo.Collection
 	mgstats *mgo.Collection
